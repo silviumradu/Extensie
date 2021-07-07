@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a:link,
+        a:visited {
+            background-color: red;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover,
+        a:active {
+            background-color: #b3ff00;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button onclick="myFunction1()">Like</button>
+    <button onclick="myFunction2()">Ador</button>
+    <button onclick="myFunction3()">Tristete</button>
+    <button onclick="myFunction4()">HaHa</button>
+    <button onclick="myFunction5()">Wow</button>
+    <button onclick="myFunction6()">Furie</button>
+    <button onclick="myFunction7()">Grija</button>
+    <button onclick="myFunction8()">Cuvinte bune</button>
+    <button onclick="myFunction9()">Cuvinte rele</button>
+
+    <p>Like: <input type="number" id="inc" value="0"></p>
+    <p>Ador: <input type="number" id="inc1" value="0"></p>
+    <p>Tristete: <input type="number" id="inc2" value="0"></p>
+    <p>HaHa: <input type="number" id="inc3" value="0"></p>
+    <p>Wow: <input type="number" id="inc4" value="0"></p>
+    <p>Furie: <input type="number" id="inc5" value="0"></p>
+    <p>Grija: <input type="number" id="inc6" value="0"></p>
+    <p>Cuvinte bune: <input type="number" id="inc7" value="0"></p>
+    <p>Cuvinte rele: <input type="number" id="inc8" value="0"></p>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p>Reactii: <input type="text" id="react" value="0" readonly> </p>
+    <p>Text: <input type="text" id="text" value="0" readonly> </p>
+    <p>Postarea este: <input type="text" id="alg" value="0" readonly></p>
+
+
+    <script>
+        function myFunction1() {
+            document.getElementById("inc").stepUp(1);
+        }
+        function myFunction2() {
+            document.getElementById('inc1').stepUp(1);
+        }
+        function myFunction3() {
+            document.getElementById('inc2').stepUp(1);
+        }
+        function myFunction4() {
+            document.getElementById('inc3').stepUp(1);
+        }
+        function myFunction5() {
+            document.getElementById('inc4').stepUp(1);
+        }
+        function myFunction6() {
+            document.getElementById('inc5').stepUp(1);
+        }
+        function myFunction7() {
+            document.getElementById('inc6').stepUp(1);
+        }
+        function myFunction8() {
+            document.getElementById('inc7').stepUp(1);
+        }
+        function myFunction9() {
+            document.getElementById('inc8').stepUp(1);
+        }
+
+        function calculate() {
+            var n1 = parseFloat(document.getElementById('inc').value);
+            var n2 = parseFloat(document.getElementById('inc1').value);
+            var n3 = parseFloat(document.getElementById('inc2').value);
+            var n4 = parseFloat(document.getElementById('inc3').value);
+            var n5 = parseFloat(document.getElementById('inc4').value);
+            var n6 = parseFloat(document.getElementById('inc5').value);
+            var n7 = parseFloat(document.getElementById('inc6').value);
+
+            var t1 = parseFloat(document.getElementById('inc7').value);
+            var t2 = parseFloat(document.getElementById('inc8').value);
+
+            var pos = n1 + n2 + n4 + n7;
+            var neg = n3 + n6
+
+            if ((pos > neg) && (t1 > t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = pos + " bune";
+                document.getElementById("text").value = t1 + " bune";
+                document.getElementById("alg").value = 100 + "% bine intentionata";
+            }
+            else if ((pos > neg) && (t1 < t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = pos + " bune";
+                document.getElementById("text").value = t2 + " rele";
+            }
+            else if ((pos < neg) && (t1 > t2)) {
+                neg = neg + n5;
+                document.getElementById("react").value = neg + " rele";
+                document.getElementById("text").value = t1 + " bune";
+            }
+            else if ((pos < neg) && (t1 < t2)) {
+                neg = neg + n5;
+                document.getElementById("react").value = neg + " rele";
+                document.getElementById("text").value = t2 + " rele";
+            }
+            else if ((pos == neg) && (t1 == t2)) {
+
+                document.getElementById("react").value = 0;
+                document.getElementById("text").value = 0;
+            }
+            else if ((pos > neg) && (t1 == t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = pos + " bune";
+                document.getElementById("text").value = 0;
+            }
+            else if ((pos < neg) && (t1 == t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = neg + " rele";
+                document.getElementById("text").value = 0;
+            }
+            else if ((pos == neg) && (t1 > t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = 0;
+                document.getElementById("text").value = t1 + " bune";
+            }
+            else if ((pos == neg) && (t1 < t2)) {
+                pos = pos + n5;
+                document.getElementById("react").value = 0;
+                document.getElementById("text").value = t2 + " rele";
+            }
+
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>
