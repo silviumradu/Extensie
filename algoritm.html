@@ -49,9 +49,15 @@
 
     <button onclick="calculate()">Calculate</button>
 
+    <p>Reactii bune %: <input type="text" id="rbs" value="0" readonly></p>
+    <p>Reactii rele %: <input type="text" id="rrs" value="0" readonly></p>
+
+    <p>Cuvinte bune %: <input type="text" id="cbs" value="0" readonly></p>
+    <p>Cuvinte rele %: <input type="text" id="crs" value="0" readonly></p>
+
     <p>Reactii: <input type="text" id="react" value="0" readonly> </p>
     <p>Text: <input type="text" id="text" value="0" readonly> </p>
-    <p>Postarea este: <input type="text" id="alg" value="0" readonly></p>
+    <p>Postarea este: <input type="text" id="alg" value="0" readonly size="40"></p>
 
 
     <script>
@@ -98,54 +104,82 @@
             var pos = n1 + n2 + n4 + n7;
             var neg = n3 + n6
 
+            var totr = neg + pos;
+            var xposr = parseFloat((pos * 100) / totr);
+            var ynegr = parseFloat((neg * 100) / totr);
+
+            var totw = t1 + t2;
+            var xposw = parseFloat((t1 * 100) / totw);
+            var ynegw = parseFloat((t2 * 100) / totw);
+
+            var procentajBun = (25 / 100 * xposr) + (75 / 100 * xposw);
+            var procentajRau = (25 / 100 * ynegr) + (75 / 100 * ynegw);
+
             if ((pos > neg) && (t1 > t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = pos + " bune";
                 document.getElementById("text").value = t1 + " bune";
-                document.getElementById("alg").value = 100 + "% bine intentionata";
+
+
             }
             else if ((pos > neg) && (t1 < t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = pos + " bune";
                 document.getElementById("text").value = t2 + " rele";
+
             }
             else if ((pos < neg) && (t1 > t2)) {
                 neg = neg + n5;
                 document.getElementById("react").value = neg + " rele";
                 document.getElementById("text").value = t1 + " bune";
+
             }
             else if ((pos < neg) && (t1 < t2)) {
                 neg = neg + n5;
                 document.getElementById("react").value = neg + " rele";
                 document.getElementById("text").value = t2 + " rele";
+
             }
             else if ((pos == neg) && (t1 == t2)) {
 
                 document.getElementById("react").value = 0;
                 document.getElementById("text").value = 0;
+
             }
             else if ((pos > neg) && (t1 == t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = pos + " bune";
                 document.getElementById("text").value = 0;
+
             }
             else if ((pos < neg) && (t1 == t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = neg + " rele";
                 document.getElementById("text").value = 0;
+
             }
             else if ((pos == neg) && (t1 > t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = 0;
                 document.getElementById("text").value = t1 + " bune";
+
             }
             else if ((pos == neg) && (t1 < t2)) {
                 pos = pos + n5;
                 document.getElementById("react").value = 0;
                 document.getElementById("text").value = t2 + " rele";
+
             }
 
+            document.getElementById("rbs").value = xposr + " %";
+            document.getElementById("rrs").value = ynegr + " %";
+            document.getElementById("cbs").value = xposw + " %";
+            document.getElementById("crs").value = ynegw + " %";
 
+            if (procentajBun > procentajRau)
+                document.getElementById("alg").value = procentajBun + "% bine intentionata";
+            else
+                document.getElementById("alg").value = procentajRau + "% rau intentionata";
 
         }
     </script>
