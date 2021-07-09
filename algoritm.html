@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    <!--When the button is pushed it increments-->
     <button onclick="myFunction1()">Like</button>
     <button onclick="myFunction2()">Ador</button>
     <button onclick="myFunction3()">Tristete</button>
@@ -47,13 +48,14 @@
     <p>Cuvinte bune: <input type="number" id="inc7" value="0"></p>
     <p>Cuvinte rele: <input type="number" id="inc8" value="0"></p>
 
+    <!--Calculate button leads us to the calculate function which displays the results of the analysis-->
     <button onclick="calculate()">Calculate</button>
 
-    <p>Reactii bune %: <input type="text" id="rbs" value="0" readonly></p>
-    <p>Reactii rele %: <input type="text" id="rrs" value="0" readonly></p>
+    <p>Reactii bune %: <input type="text" id="goodReact" value="0" readonly></p>
+    <p>Reactii rele %: <input type="text" id="badReact" value="0" readonly></p>
 
-    <p>Cuvinte bune %: <input type="text" id="cbs" value="0" readonly></p>
-    <p>Cuvinte rele %: <input type="text" id="crs" value="0" readonly></p>
+    <p>Cuvinte bune %: <input type="text" id="goodWords" value="0" readonly></p>
+    <p>Cuvinte rele %: <input type="text" id="badWords" value="0" readonly></p>
 
     <p>Reactii: <input type="text" id="react" value="0" readonly> </p>
     <p>Text: <input type="text" id="text" value="0" readonly> </p>
@@ -61,6 +63,9 @@
 
 
     <script>
+
+        // functions for increment of the reactions
+
         function myFunction1() {
             document.getElementById("inc").stepUp(1);
         }
@@ -90,6 +95,8 @@
         }
 
         function calculate() {
+
+            //I parsed the values from the input into float variables  
             var n1 = parseFloat(document.getElementById('inc').value);
             var n2 = parseFloat(document.getElementById('inc1').value);
             var n3 = parseFloat(document.getElementById('inc2').value);
@@ -101,85 +108,99 @@
             var t1 = parseFloat(document.getElementById('inc7').value);
             var t2 = parseFloat(document.getElementById('inc8').value);
 
-            var pos = n1 + n2 + n4 + n7;
-            var neg = n3 + n6
+            var reactPos = n1 + n2 + n4 + n7; //I use var reactPos for positive reactions as like, love, haha, care
+            var reactNeg = n3 + n6 //I use var reactNeg for negative reactions as angry, sadness
 
-            var totr = neg + pos;
-            var xposr = parseFloat((pos * 100) / totr);
-            var ynegr = parseFloat((neg * 100) / totr);
+            //The algorithm makes the sum of all reactions and calculate the percentages of the each 
+            var totalReact = reactPos + reactNeg;
+            var percReactPos = parseFloat((reactPos * 100) / totalReact);
+            var percReactNeg = parseFloat((reactNeg * 100) / totalReact);
 
-            var totw = t1 + t2;
-            var xposw = parseFloat((t1 * 100) / totw);
-            var ynegw = parseFloat((t2 * 100) / totw);
+            //The algorithm makes the sum of all good and bad words and calculate the percentages of the each 
+            var totalWords = t1 + t2;
+            var percGoodWords = parseFloat((t1 * 100) / totalWords);
+            var percBadWords = parseFloat((t2 * 100) / totalWords);
 
-            var procentajBun = (25 / 100 * xposr) + (75 / 100 * xposw);
-            var procentajRau = (25 / 100 * ynegr) + (75 / 100 * ynegw);
+            //Based on the analysis of some posts on Facebook, I chose the text of the post is more important than the reacts
+            var goodPercentage = (25 / 100 * percReactPos) + (75 / 100 * percGoodWords);
+            var badPercentage = (25 / 100 * percReactNeg) + (75 / 100 * percBadWords);
 
-            if ((pos > neg) && (t1 > t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = pos + " bune";
+            //for each comparison is chosen which category belongs the wow reactions
+            //it's displayed the number and the type of the reactions and words
+            if ((reactPos > reactNeg) && (t1 > t2)) {
+                reactPos = reactPos + n5;
+                document.getElementById("react").value = reactPos + " bune";
                 document.getElementById("text").value = t1 + " bune";
 
 
             }
-            else if ((pos > neg) && (t1 < t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = pos + " bune";
+            else if ((reactPos > reactNeg) && (t1 < t2)) {
+                reactPos = reactPos + n5;
+                document.getElementById("react").value = reactPos + " bune";
                 document.getElementById("text").value = t2 + " rele";
 
             }
-            else if ((pos < neg) && (t1 > t2)) {
-                neg = neg + n5;
-                document.getElementById("react").value = neg + " rele";
+            else if ((reactPos < reactNeg) && (t1 > t2)) {
+                reactNeg = reactNeg + n5;
+                document.getElementById("react").value = reactNeg + " rele";
                 document.getElementById("text").value = t1 + " bune";
 
             }
-            else if ((pos < neg) && (t1 < t2)) {
-                neg = neg + n5;
-                document.getElementById("react").value = neg + " rele";
+            else if ((reactPos < reactNeg) && (t1 < t2)) {
+                reactNeg = reactNeg + n5;
+                document.getElementById("react").value = reactNeg + " rele";
                 document.getElementById("text").value = t2 + " rele";
 
             }
-            else if ((pos == neg) && (t1 == t2)) {
+            else if ((reactPos == reactNeg) && (t1 == t2)) {
 
-                document.getElementById("react").value = 0;
-                document.getElementById("text").value = 0;
-
-            }
-            else if ((pos > neg) && (t1 == t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = pos + " bune";
-                document.getElementById("text").value = 0;
+                document.getElementById("react").value = totalReact;
+                document.getElementById("text").value = totalWords;
 
             }
-            else if ((pos < neg) && (t1 == t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = neg + " rele";
-                document.getElementById("text").value = 0;
+            else if ((reactPos > reactNeg) && (t1 == t2)) {
+                reactPos = reactPos + n5;
+                document.getElementById("react").value = reactPos + " bune";
+                document.getElementById("text").value = totalWords;
 
             }
-            else if ((pos == neg) && (t1 > t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = 0;
+            else if ((reactPos < reactNeg) && (t1 == t2)) {
+                reactNeg = reactNeg + n5;
+                document.getElementById("react").value = reactNeg + " rele";
+                document.getElementById("text").value = totalWords;
+
+            }
+            else if ((reactPos == reactNeg) && (t1 > t2)) {
+                reactPos = reactPos + n5;
+                document.getElementById("react").value = totalReact;
                 document.getElementById("text").value = t1 + " bune";
 
             }
-            else if ((pos == neg) && (t1 < t2)) {
-                pos = pos + n5;
-                document.getElementById("react").value = 0;
+            else if ((reactPos == reactNeg) && (t1 < t2)) {
+                reactPos = reactPos + n5;
+                document.getElementById("react").value = totalReact;
                 document.getElementById("text").value = t2 + " rele";
 
             }
 
-            document.getElementById("rbs").value = xposr + " %";
-            document.getElementById("rrs").value = ynegr + " %";
-            document.getElementById("cbs").value = xposw + " %";
-            document.getElementById("crs").value = ynegw + " %";
+            //it's displayed the percentage of the reactions and words
+            document.getElementById("goodReact").value = percReactPos + " %";
+            document.getElementById("badReact").value = percReactNeg + " %";
+            document.getElementById("goodWords").value = percGoodWords + " %";
+            document.getElementById("badWords").value = percBadWords + " %";
 
-            if (procentajBun > procentajRau)
-                document.getElementById("alg").value = procentajBun + "% bine intentionata";
-            else
-                document.getElementById("alg").value = procentajRau + "% rau intentionata";
+            if (goodPercentage > badPercentage) {
+                document.getElementById("alg").value = goodPercentage + "% bine intentionata";
+                alert("Postarea este bine intentionata");
+            }
+
+            else if (goodPercentage < badPercentage) {
+                document.getElementById("alg").value = badPercentage + "% rau intentionata";
+                alert("Postarea este rau intentionata");
+            }
+            else if (goodPercentage == badPercentage) {
+                document.getElementById("alg").value = "neutra";
+            }
 
         }
     </script>
