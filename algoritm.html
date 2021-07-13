@@ -149,10 +149,7 @@
             var goodPercentage, badPercentage;
 
             //Based on the analysis of some posts on Facebook, I chose the text of the post is more important than the reacts
-            /*if (isNaN(percGoodComments) && isNaN(percGoodWords) && isNaN(percReactNeg) && isNaN(percBadComments) && isNaN(percBadWords)) {
-                goodPercentage = (10 * percReactPos);
-                badPercentage = 0;
-            }*/
+
 
             goodPercentage = (25 / 100 * percReactPos) + (25 / 100 * percGoodComments) + (50 / 100 * percGoodWords);
             badPercentage = (25 / 100 * percReactNeg) + (25 / 100 * percBadComments) + (50 / 100 * percBadWords);
