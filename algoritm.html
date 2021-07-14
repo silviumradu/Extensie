@@ -212,12 +212,12 @@
             }
 
             //it's displayed the percentage of the reactions and words
-            document.getElementById("goodReact").value = percReactPos || 0 + " %";
-            document.getElementById("badReact").value = percReactNeg || 0 + " %";
-            document.getElementById("goodWords").value = percGoodWords || 0 + " %";
-            document.getElementById("badWords").value = percBadWords || 0 + " %";
-            document.getElementById("goodComments").value = percGoodComments || 0 + " %";
-            document.getElementById("badComments").value = percBadComments || 0 + " %";
+            document.getElementById("goodReact").value = percReactPos + " %" || 0 + " %";
+            document.getElementById("badReact").value = percReactNeg + " %" || 0 + " %";
+            document.getElementById("goodWords").value = percGoodWords + " %" || 0 + " %";
+            document.getElementById("badWords").value = percBadWords + " %" || 0 + " %";
+            document.getElementById("goodComments").value = percGoodComments + " %" || 0 + " %";
+            document.getElementById("badComments").value = percBadComments + " %" || 0 + " %";
 
             if (goodPercentage > badPercentage) {
                 document.getElementById("alg").value = goodPercentage + " % bine intentionata";
