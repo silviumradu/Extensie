@@ -1,13 +1,22 @@
 {
     "name": "extension",
-    "version":"0.0.1",
+    "version":"1.0",
     "description":"demo",
     "manifest_version": 2,
+
+    "background": 
+      {
+        "scripts": ["background.js"],
+        "persistent":false
+      },
     "browser_action": {
         "default_popup":"demo.html",
         "default_icon": "logo.png"
     },
-    "permissions": [ 
-  "tabs"
-]
+    "permissions": [
+       "tabs",
+       "https://www.facebook.com/*/posts/*"
+
+     ]
+    
 }
