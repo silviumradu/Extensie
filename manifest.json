@@ -16,7 +16,12 @@
     "permissions": [
        "tabs",
        "https://www.facebook.com/*/posts/*"
-
-     ]
+     ],
+      "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*/posts/*"],
+      "js": ["hello.js"]
+    }
+  ]
     
 }
