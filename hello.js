@@ -22,17 +22,21 @@ for (let index = 0; index < listComments.length; index++) {
 //console.log(count);
 
 //for scraping the reactions, I observed I have an array who contains the same number of elements as types of reactions of the post
-document.querySelector('.bp9cbjyn .j83agx80 .buofh1pr .ni8dbmo4 .stjgntxs').click(function () {
-    var numberReact = document.getElementsByClassName("oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 pq6dq46d p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l dwo3fsh8 ow4ym5g4 auili1gw mf7ej076 gmql0nx0 tkr6xdv7 bzsjyuwj cb02d2ww j1lvzwm4");
 
-    for (let i = 1; i < numberReact.length; i++) {
-        try {
-            console.log(numberReact[i].innerText);
-        } catch (error) {
-            console.error('error');
-        }
+let element = document.querySelector('.bp9cbjyn .j83agx80 .buofh1pr .ni8dbmo4 .stjgntxs').click();
+var numberReact = document.getElementsByClassName("oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 pq6dq46d p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l dwo3fsh8 ow4ym5g4 auili1gw mf7ej076 gmql0nx0 tkr6xdv7 bzsjyuwj cb02d2ww j1lvzwm4");
+
+for (let i = 1; i < numberReact.length; i++) {
+    try {
+        console.log(numberReact[i].innerText);
+    } catch (error) {
+        console.error('error');
     }
-});
+}
+
+
+
+
 
 
 
