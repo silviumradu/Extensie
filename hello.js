@@ -1,7 +1,8 @@
 //using chrome developers, I build this code wich send an alert tab when I open a facebook page
 //chrome tabs.query provides tab control
 
-import natural from 'natural';
+//import natural from 'extensie_project/node_modules/natural';
+var natural = require('node_modules/natural');
 
 var tokenizer = new natural.WordTokenizer(); //this splits the text in words
 
