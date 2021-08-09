@@ -1,8 +1,8 @@
-import MyDefault from "hello.js";
+//var natural = require('natural');
+import natural from 'natural';
 
-var natural = require('natural');
 var tokenizer = new natural.WordTokenizer();
-var a = tokenizer.tokenize("I'm so proud of you!");
+var a = tokenizer.tokenize("You are stupid!");
 console.log(a);
 var Analyzer = natural.SentimentAnalyzer;
 var stemmer = natural.PorterStemmer;

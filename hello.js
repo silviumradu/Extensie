@@ -1,10 +1,17 @@
 //using chrome developers, I build this code wich send an alert tab when I open a facebook page
 //chrome tabs.query provides tab control
 
+import natural from 'natural';
+
+var tokenizer = new natural.WordTokenizer(); //this splits the text in words
+
 //the username, the date and the description of the post are listed by array form so for the description I used postTextByClass[2].innerText
 var postTextByClass = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+var a = tokenizer.tokenize(postTextByClass[1].innerText);
+
 try {
     console.log(postTextByClass[1].innerText);
+    console.log(a);
 }
 catch (error) {
     console.error("error");
