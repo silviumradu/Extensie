@@ -1,5 +1,4 @@
-//var natural = require('natural');
-import natural from 'natural';
+var natural = require('natural');
 
 var tokenizer = new natural.WordTokenizer();
 var a = tokenizer.tokenize("You are stupid!");
