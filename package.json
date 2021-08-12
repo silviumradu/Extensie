@@ -5,6 +5,9 @@
   "main": "background.js",
   "type": "commonjs",
   "dependencies": {
+    "@vue/cli": "^4.5.13",
+    "axios": "^0.21.1",
+    "monkeylearn": "^3.4.0",
     "natural": "^5.0.4"
   },
   "devDependencies": {
@@ -13,7 +16,11 @@
     "babel-jest": "^27.0.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "serve1": "./node_modules/.bin/vue-cli-service serve",
+    "build1": "./node_modules/.bin/vue-cli-service build"
   },
   "author": "",
   "license": "ISC"
