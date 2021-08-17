@@ -1,14 +1,14 @@
 //using chrome developers, I build this code wich send an alert tab when I open a facebook page
 //chrome tabs.query provides tab control
 
-
+//import * as nlp from "nlp_calculated";
 //the username, the date and the description of the post are listed by array form so for the description I used postTextByClass[2].innerText
-import { sentiment } from "nlp_calculated";
-let val = sentiment();
-console.log(val);
+var addFn = require('./nlp.js');
+
 var postTextByClass = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
 try {
     console.log(postTextByClass[1].innerText);
+    addFn(postTextByClass[1].innerText);
 }
 catch (error) {
     console.error("error");
@@ -22,6 +22,8 @@ var count = 0;
 for (let index = 0; index < listComments.length; index++) {
     console.log("Author:", listCommentsAuthors[index].innerText, "<commented>: ", listComments[index].innerText + "\n"); //display comments
     count++;
+    addFn(listCommentsAuthors[index].innerText);
+    addFn(listComments[index].innerText);
 }
 console.log(count);
 

@@ -1,27 +1,16 @@
 {
-  "name": "extensie_project",
+  "name": "copy_extension",
   "version": "1.0.0",
-  "description": "this is a scraping project",
-  "main": "background.js",
-  "type": "module",
-  "dependencies": {
-    "@vue/cli": "^4.5.13",
-    "axios": "^0.21.1",
-    "monkeylearn": "^3.4.0",
-    "natural": "^5.0.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "babel-jest": "^27.0.6"
-  },
+  "description": "",
+  "main": "index_calculated.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "serve1": "./node_modules/.bin/vue-cli-service serve",
-    "build1": "./node_modules/.bin/vue-cli-service build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.6.1",
+    "natural": "^5.0.4"
+  }
 }
