@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "this is a scraping project",
   "main": "background.js",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@vue/cli": "^4.5.13",
     "axios": "^0.21.1",

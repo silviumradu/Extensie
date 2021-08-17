@@ -14,7 +14,7 @@ const MonkeyLearn = require('monkeylearn')
 
 const ml = new MonkeyLearn('6df8e369616a4607d1953c7a4eb62909673ebec5')
 let model_id = 'cl_pi3C7JiL'
-let data = ["Flowers are beautiful!"]
+let data = ["go to hell!"]
 ml.classifiers.classify(model_id, data).then(res => {
     console.log(res.body)
     if (res.raw_responses[0].status == 200) {

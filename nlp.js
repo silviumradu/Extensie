@@ -1,7 +1,7 @@
 var natural = require('natural');
 
 var tokenizer = new natural.WordTokenizer();
-var a = tokenizer.tokenize("You are stupid!");
+var a = tokenizer.tokenize("I am proud of you!");
 console.log(a);
 var Analyzer = natural.SentimentAnalyzer;
 var stemmer = natural.PorterStemmer;

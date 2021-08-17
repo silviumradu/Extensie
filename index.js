@@ -1,23 +1,14 @@
 //using chrome developers, I build this code wich send an alert tab when I open a facebook page
 //chrome tabs.query provides tab control
 
-//import natural from 'extensie_project/node_modules/natural';
-var natural = require('node_modules/natural');
-import * from nlp_calculate
-var tokenizer = new natural.WordTokenizer(); //this splits the text in words
 
 //the username, the date and the description of the post are listed by array form so for the description I used postTextByClass[2].innerText
+import { sentiment } from "nlp_calculated";
+let val = sentiment();
+console.log(val);
 var postTextByClass = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
-
-var text = tokenizer.tokenize(postTextByClass[1].innerText); // splits the text of the post in individual words
-var Analyzer = natural.SentimentAnalyzer;
-var stemmer = natural.PorterStemmer;
-var analyzer = new Analyzer("English", stemmer, "afinn"); // getSentiment expects an array of strings
-
 try {
     console.log(postTextByClass[1].innerText);
-    console.log(text);
-    console.log(analyzer.getSentiment(text));
 }
 catch (error) {
     console.error("error");
@@ -29,9 +20,7 @@ var listCommentsAuthors = document.getElementsByClassName("d2edcug0 hpfvmrgz qv6
 //the comments are listed by array form so I use an index to retain them
 var count = 0;
 for (let index = 0; index < listComments.length; index++) {
-    var comments = tokenizer.tokenize(listCommentsAuthors[index].innerText); //comments will contain the words of each comment
     console.log("Author:", listCommentsAuthors[index].innerText, "<commented>: ", listComments[index].innerText + "\n"); //display comments
-    console.log(analyzer.getSentiment(comments)); //we will display the final score
     count++;
 }
 console.log(count);
